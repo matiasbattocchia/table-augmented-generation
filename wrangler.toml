@@ -1,0 +1,28 @@
+name = "tag"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+routes = [
+  { pattern = "tag.openbsp.dev", custom_domain = true },
+]
+
+# TAG's own D1 for row hashes
+[[d1_databases]]
+binding = "DB"
+database_name = "tag-db"
+database_id = "c296a6f1-2cc8-43a0-a9b9-1e35ebac0a7c"
+
+# Read/write access to google-mcp's D1 (shared auth)
+[[d1_databases]]
+binding = "GOOGLE_MCP_DB"
+database_name = "google-mcp-db"
+database_id = "78c7f9b9-35be-459b-9897-a44720b720e1"
+
+# Vector index
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "tag-index"
+
+# AI for embeddings + reranking
+[ai]
+binding = "AI"
